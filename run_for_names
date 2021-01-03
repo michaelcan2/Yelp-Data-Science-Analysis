@@ -1,0 +1,24 @@
+import json 
+path = "/Users/michaelcantu/Desktop/Quarter_5/Data_Science_Pipeline/data/yelp_dataset/"
+states = {}
+###read lines lets us just go through the json file, we wont have to use with open.
+for i in open(path+ "business.json").readlines():
+    ###loads the json string into an actual dictionary for python 
+    data = json.loads(i)
+    ##just dropping the values of the key state into the empty dictionary you created
+    ###Below in this if statement iss apprentyl how you append or add things into a dictionary
+    ###???but confused as it looks like its just asking the question if the value of state is in 
+    ###States.keys which i thought was empty.
+    ###if it s empty then 
+    if data["city"] in states.keys():
+        states[data['city']] = states[data['city']] + 1
+    else:
+        states[data["city"]] = 1
+    ##///states.append(data['states'])
+##how do i put/append json value from data into empty dictionary?
+    
+print((states))
+v = []
+for d in states.keys():
+    v.append(d)
+    print(v)
